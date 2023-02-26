@@ -18,7 +18,7 @@ looking for
 - As a user, I want to be able to add a new piece of clothing to the app
 - As a user, I want to be able to see all the clothing items I had added to the app 
 - As a user, I want to be able to filter all clothing based on category, size, price and latest
-- As a user, I want to be able to add clothing items in shop to a wish-list or to online shopping cart
+- As a user, I want to be able to add clothing items in shop to an online shopping cart
 - As a user, I want to be able to mark clothing items as sold 
 
  
