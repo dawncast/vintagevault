@@ -86,7 +86,7 @@ public class CatalogueApp {
     // MODIFIES: this
     // EFFECTS: sort clothing item in catalogue from lowest to highest price
     private void doSortByPrice() {
-       catalogue.sortPrice();
+        catalogue.sortPrice();
         System.out.println("The catalogue has been sorted from lowest to highest price");
         printCatalogue();
     }
