@@ -15,8 +15,10 @@ looking for
 
 **app features:**
 - As a user, I want to be able to add a new piece of clothing to the app
-- As a user, I want to be able to see all the clothing items I had added to the app 
-- As a user, I want to be able to filter all clothing based on price and/or size 
+- As a user, I want to be able to see all the clothing items I have added to the catalogue
+- As a user, I want to be able to sort the clothing catalogue by price
+- As a user, I want to be able to sort the clothing catalogue by date 
+- As a user, I want to be prompted back to the display menu after each task unless I quit app 
 
 
  
