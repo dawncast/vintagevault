@@ -86,13 +86,7 @@ public class CatalogueApp {
     // MODIFIES: this
     // EFFECTS: sort clothing item in catalogue from lowest to highest price
     private void doSortByPrice() {
-        Collections.sort(catalogue.getList(), (clothesA, clothesB) -> {
-            if (clothesA.getPrice() > clothesB.getPrice()) {
-                return 1;
-            } else {
-                return -1;
-            }
-        });
+       catalogue.sortPrice();
         System.out.println("The catalogue has been sorted from lowest to highest price");
         printCatalogue();
     }
@@ -101,13 +95,7 @@ public class CatalogueApp {
     // MODIFIES: this
     // EFFECTS: sort clothing item in catalogue from smallest to largest size
     private void doSortBySize() {
-        Collections.sort(catalogue.getList(), (clothesA, clothesB) -> {
-            if (clothesA.getPrice() > clothesB.getPrice()) {
-                return 1;
-            } else {
-                return -1;
-            }
-        });
+        catalogue.sortSize();
         System.out.println("The catalogue has been sorted from smallest to largest size");
         printCatalogue();
     }
