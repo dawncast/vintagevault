@@ -39,4 +39,29 @@ public class CatalogueTest {
        assertEquals("harley-davidson jacket", testCatalogue.getList().get(2).getName());
     }
 
+    @Test
+    void testSortPrice() {
+        testCatalogue.addClothes("miniskirt", 6, 50, "bottom");
+        testCatalogue.addClothes("cami", 2, 12, "top");
+        testCatalogue.addClothes("harley-davidson jacket", 75, 98, "outerwear");
+        testCatalogue.sortPrice();
+        assertEquals("miniskirt", testCatalogue.getList().get(1).getName());
+        assertEquals("cami", testCatalogue.getList().get(0).getName());
+        assertEquals("harley-davidson jacket", testCatalogue.getList().get(2).getName());
+    }
+
+    @Test
+    void testSortSize() {
+        testCatalogue.addClothes("miniskirt", 6, 50, "bottom");
+        testCatalogue.addClothes("cami", 2, 12, "top");
+        testCatalogue.addClothes("harley-davidson jacket", 14, 98, "outerwear");
+        testCatalogue.addClothes("legwarmers",0, 5, "accessories");
+        testCatalogue.sortSize();
+        assertEquals("miniskirt", testCatalogue.getList().get(2).getName());
+        assertEquals("cami", testCatalogue.getList().get(1).getName());
+        assertEquals("harley-davidson jacket", testCatalogue.getList().get(3).getName());
+        assertEquals("legwarmers", testCatalogue.getList().get(0).getName());
+
+    }
+
 }
