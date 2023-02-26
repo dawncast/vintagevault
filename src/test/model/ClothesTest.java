@@ -20,8 +20,5 @@ public class ClothesTest {
         assertEquals(35, testClothes.getPrice());
         assertEquals("top", testClothes.getCategory());
     }
-
-    @Test
-    void
 }
 
