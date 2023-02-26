@@ -19,6 +19,9 @@ public class Catalogue {
         this.clothesList.add(new Clothes(itemName, itemSize, itemPrice, itemCategory));
     }
 
+    // REQUIRES: there is at least one item in catalogue
+    // MODIFIES: this
+    // EFFECTS: sort clothing item in catalogue from lowest to highest price
     public void sortPrice() {
         Collections.sort(clothesList, (clothesA, clothesB) -> {
             if (clothesA.getPrice() > clothesB.getPrice()) {
@@ -29,6 +32,9 @@ public class Catalogue {
         });
     }
 
+    // REQUIRES: there is at least one item in catalogue
+    // MODIFIES: this
+    // EFFECTS: sort clothing item in catalogue from smallest to largest size
     public void sortSize() {
         Collections.sort(clothesList, (clothesA, clothesB) -> {
             if (clothesA.getSize() > clothesB.getSize()) {

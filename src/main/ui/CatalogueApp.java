@@ -67,8 +67,7 @@ public class CatalogueApp {
         }
     }
 
-    // REQUIRES:
-    // MODIFIES: this
+
     // EFFECTS: view all clothing in catalogue currently
     public void printCatalogue() {
         if (catalogue.getList().isEmpty()) {
@@ -82,18 +81,16 @@ public class CatalogueApp {
         }
     }
 
-    // REQUIRES:
     // MODIFIES: this
-    // EFFECTS: sort clothing item in catalogue from lowest to highest price
+    // EFFECTS: sort clothing item in catalogue from lowest to highest price and print sorted catalogue
     private void doSortByPrice() {
         catalogue.sortPrice();
         System.out.println("The catalogue has been sorted from lowest to highest price");
         printCatalogue();
     }
 
-    // REQUIRES:
     // MODIFIES: this
-    // EFFECTS: sort clothing item in catalogue from smallest to largest size
+    // EFFECTS: sort clothing item in catalogue from smallest to largest size and print sorted catalogue
     private void doSortBySize() {
         catalogue.sortSize();
         System.out.println("The catalogue has been sorted from smallest to largest size");
