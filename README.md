@@ -15,6 +15,7 @@ looking for
 
 **app features:**
 - As a user, I want to be able to add a new piece of clothing to the app
+- As a user, I want to be able to remove a piece of clothing from the catalogue
 - As a user, I want to be able to see all the clothing items I have added to the catalogue
 - As a user, I want to be able to sort the clothing catalogue by price
 - As a user, I want to be able to sort the clothing catalogue by date 

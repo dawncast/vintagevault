@@ -40,6 +40,28 @@ public class CatalogueTest {
     }
 
     @Test
+    void testRemoveOne() {
+        testCatalogue.addClothes("miniskirt", 6, 50, "bottom");
+        testCatalogue.addClothes("cami", 2, 12, "top");
+        testCatalogue.addClothes("harley-davidson jacket", 75, 50, "outerwear");
+        testCatalogue.removeClothes("miniskirt");
+        assertEquals(2, testCatalogue.getList().size());
+    }
+
+    @Test
+    void testRemoveMultiple() {
+        testCatalogue.addClothes("miniskirt", 6, 50, "bottom");
+        testCatalogue.addClothes("cami", 2, 12, "top");
+        testCatalogue.addClothes("harley-davidson jacket", 75, 50, "outerwear");
+        testCatalogue.removeClothes("miniskirt");
+        testCatalogue.removeClothes("cami");
+        assertEquals(1,testCatalogue.getList().size());
+        assertEquals("harley-davidson jacket", testCatalogue.getList().get(0).getName());
+
+    }
+
+
+    @Test
     void testSortPrice() {
         testCatalogue.addClothes("miniskirt", 6, 50, "bottom");
         assertEquals("miniskirt", testCatalogue.getList().get(0).getName());

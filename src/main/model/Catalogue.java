@@ -19,6 +19,16 @@ public class Catalogue {
         this.clothesList.add(new Clothes(itemName, itemSize, itemPrice, itemCategory));
     }
 
+    public void removeClothes(String name) {
+        Clothes itemToRemove = null;
+        for (Clothes clothesItem : clothesList) {
+            if (name.equals(clothesItem.getName())) {
+                itemToRemove = clothesItem;
+            }
+        }
+        this.clothesList.remove(itemToRemove);
+    }
+
     // REQUIRES: there is at least one item in catalogue
     // MODIFIES: this
     // EFFECTS: sort clothing item in catalogue from lowest to highest price

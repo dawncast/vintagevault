@@ -2,10 +2,11 @@ package model;
 
 // represents a single clothing item with name, size, price, and category
 public class Clothes {
-    private String name;       // clothing name
-    private int size;          // clothing size
-    private int price;     // clothing colour
-    private String category;   // clothing category
+    private String name;                    // clothing name
+    private int size;                       // clothing size
+    private int price;                     // clothing colour
+    private String category;               // clothing category
+
 
 
     public Clothes(String name, int size, int price, String category) {
@@ -30,4 +31,5 @@ public class Clothes {
     public String getCategory() {
         return category;
     }
+
 }

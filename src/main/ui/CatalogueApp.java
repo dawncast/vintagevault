@@ -35,6 +35,7 @@ public class CatalogueApp {
 
     // MODIFIES: this
     // EFFECTS: processes user command
+    @SuppressWarnings("methodlength")
     private void processCommand(String command) {
         if (command.equals("a")) {
             // over you want to process more input for name, size, color, category, date
@@ -55,6 +56,12 @@ public class CatalogueApp {
             catalogue.addClothes(itemName, itemSize, itemPrice, itemCategory);
 
             System.out.println("Item was successfully added!");
+
+        } else if (command.equals("r")) {
+            System.out.println("Type in item name to be removed from catalogue: ");
+            String itemName = input.next();
+            catalogue.removeClothes(itemName);
+            System.out.println("Item was successfully removed!");
 
         } else if (command.equals("v")) {
             printCatalogue();
@@ -102,6 +109,7 @@ public class CatalogueApp {
         System.out.println("\n Welcome to Vintage Vault!");
         System.out.println("\n Select Option:");
         System.out.println("\ta -> add item");
+        System.out.println("\tr -> remove item");
         System.out.println("\tv -> view catalogue");
         System.out.println("\tp -> sort catalogue by price");
         System.out.println("\ts -> sort catalogue by size");
