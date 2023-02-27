@@ -19,6 +19,8 @@ public class Catalogue {
         this.clothesList.add(new Clothes(itemName, itemSize, itemPrice, itemCategory));
     }
 
+    //MODIFIES: this
+    //EFFECTS: removes a clothing item from catalogue by clothing item name
     public void removeClothes(String name) {
         Clothes itemToRemove = null;
         for (Clothes clothesItem : clothesList) {
