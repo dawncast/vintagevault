@@ -1,0 +1,14 @@
+{"clothes": [
+    {
+        "size": 4,
+        "price": 20,
+        "name": "skirt",
+        "category": "bottom"
+    },
+    {
+        "size": 9,
+        "price": 280,
+        "name": "blouse",
+        "category": "top"
+    }
+]}
