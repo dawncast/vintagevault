@@ -2,15 +2,25 @@ package ui;
 
 import model.Catalogue;
 import model.Clothes;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.*;
 
+//represents a catalogue app that users can interact with
 public class CatalogueApp {
+    private static final String JSON_STORE = "./data/catalogue.json";
     private Scanner input = new Scanner(System.in);
     private Catalogue catalogue = new Catalogue();
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
 
     //EFFECTS: runs the catalogue application
-    public CatalogueApp() {
+    public CatalogueApp() throws FileNotFoundException {
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
         runCatalogue();
     }
 
@@ -53,7 +63,7 @@ public class CatalogueApp {
             System.out.println("Item category: ");
             String itemCategory = input.next();
 
-            catalogue.addClothes(itemName, itemSize, itemPrice, itemCategory);
+            catalogue.addClothItem(itemName, itemSize, itemPrice, itemCategory);
 
             System.out.println("Item was successfully added!");
 
@@ -67,8 +77,12 @@ public class CatalogueApp {
             printCatalogue();
         } else if (command.equals("p")) {
             doSortByPrice();
-        } else if (command.equals("s")) {
+        } else if (command.equals("n")) {
             doSortBySize();
+        } else if (command.equals("s")) {
+            saveWorkRoom();
+        } else if (command.equals("l")) {
+            loadWorkRoom();
         } else {
             System.out.println("This selection is not valid...");
         }
@@ -113,8 +127,33 @@ public class CatalogueApp {
         System.out.println("\tv -> view catalogue");
         System.out.println("\tp -> sort catalogue by price");
         System.out.println("\ts -> sort catalogue by size");
+        System.out.println("\ts -> save work room to file");
+        System.out.println("\tl -> load work room from file");
         System.out.println("\tq -> quit");
 
+    }
+
+    // EFFECTS: saves the workroom to file
+    private void saveWorkRoom() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(catalogue);
+            jsonWriter.close();
+            System.out.println("Saved " + "catalogue" + " to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: loads workroom from file
+    private void loadWorkRoom() {
+        try {
+            catalogue = jsonReader.read();
+            System.out.println("Loaded " + "catalogue" + " from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
+        }
     }
 }
 

@@ -23,16 +23,16 @@ public class CatalogueTest {
 
     @Test
     void testAddOneItem() {
-        testCatalogue.addClothes("miniskirt", 6, 50, "bottom");
+        testCatalogue.addClothItem("miniskirt", 6, 50, "bottom");
         assertEquals(1, testCatalogue.getList().size());
         assertEquals("miniskirt", testCatalogue.getList().get(0).getName());
     }
 
     @Test
     void testAddMultiple() {
-       testCatalogue.addClothes("miniskirt", 6, 50, "bottom");
-       testCatalogue.addClothes("cami", 2, 12, "top");
-       testCatalogue.addClothes("harley-davidson jacket", 75, 50, "outerwear");
+       testCatalogue.addClothItem("miniskirt", 6, 50, "bottom");
+       testCatalogue.addClothItem("cami", 2, 12, "top");
+       testCatalogue.addClothItem("harley-davidson jacket", 75, 50, "outerwear");
        assertEquals(3, testCatalogue.getList().size());
        assertEquals("miniskirt", testCatalogue.getList().get(0).getName());
        assertEquals("cami", testCatalogue.getList().get(1).getName());
@@ -41,18 +41,18 @@ public class CatalogueTest {
 
     @Test
     void testRemoveOne() {
-        testCatalogue.addClothes("miniskirt", 6, 50, "bottom");
-        testCatalogue.addClothes("cami", 2, 12, "top");
-        testCatalogue.addClothes("harley-davidson jacket", 75, 50, "outerwear");
+        testCatalogue.addClothItem("miniskirt", 6, 50, "bottom");
+        testCatalogue.addClothItem("cami", 2, 12, "top");
+        testCatalogue.addClothItem("harley-davidson jacket", 75, 50, "outerwear");
         testCatalogue.removeClothes("miniskirt");
         assertEquals(2, testCatalogue.getList().size());
     }
 
     @Test
     void testRemoveMultiple() {
-        testCatalogue.addClothes("miniskirt", 6, 50, "bottom");
-        testCatalogue.addClothes("cami", 2, 12, "top");
-        testCatalogue.addClothes("harley-davidson jacket", 75, 50, "outerwear");
+        testCatalogue.addClothItem("miniskirt", 6, 50, "bottom");
+        testCatalogue.addClothItem("cami", 2, 12, "top");
+        testCatalogue.addClothItem("harley-davidson jacket", 75, 50, "outerwear");
         testCatalogue.removeClothes("miniskirt");
         testCatalogue.removeClothes("cami");
         assertEquals(1,testCatalogue.getList().size());
@@ -63,11 +63,11 @@ public class CatalogueTest {
 
     @Test
     void testSortPrice() {
-        testCatalogue.addClothes("miniskirt", 6, 50, "bottom");
+        testCatalogue.addClothItem("miniskirt", 6, 50, "bottom");
         assertEquals("miniskirt", testCatalogue.getList().get(0).getName());
-        testCatalogue.addClothes("cami", 2, 12, "top");
+        testCatalogue.addClothItem("cami", 2, 12, "top");
         assertEquals("cami", testCatalogue.getList().get(1).getName());
-        testCatalogue.addClothes("harley-davidson jacket", 75, 98, "outerwear");
+        testCatalogue.addClothItem("harley-davidson jacket", 75, 98, "outerwear");
         testCatalogue.sortPrice();
         assertEquals("miniskirt", testCatalogue.getList().get(1).getName());
         assertEquals("cami", testCatalogue.getList().get(0).getName());
@@ -76,12 +76,12 @@ public class CatalogueTest {
 
     @Test
     void testSortSize() {
-        testCatalogue.addClothes("miniskirt", 6, 50, "bottom");
+        testCatalogue.addClothItem("miniskirt", 6, 50, "bottom");
         assertEquals("miniskirt", testCatalogue.getList().get(0).getName());
-        testCatalogue.addClothes("cami", 2, 12, "top");
+        testCatalogue.addClothItem("cami", 2, 12, "top");
         assertEquals("cami", testCatalogue.getList().get(1).getName());
-        testCatalogue.addClothes("harley-davidson jacket", 14, 98, "outerwear");
-        testCatalogue.addClothes("legwarmers",0, 5, "accessories");
+        testCatalogue.addClothItem("harley-davidson jacket", 14, 98, "outerwear");
+        testCatalogue.addClothItem("legwarmers",0, 5, "accessories");
         testCatalogue.sortSize();
         assertEquals("cami", testCatalogue.getList().get(1).getName());
         assertEquals("harley-davidson jacket", testCatalogue.getList().get(3).getName());

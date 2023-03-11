@@ -1,11 +1,15 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 //represents a catalogue that contains a list of clothes
-public class Catalogue {
+public class Catalogue implements Writable {
     private List<Clothes> clothesList;
 
     //EFFECTS: constructs an empty catalogue of clothes
@@ -15,9 +19,13 @@ public class Catalogue {
 
     //MODIFIES: this
     //EFFECTS: adds a new clothing item to existing catalogue of clothing
-    public void addClothes(String itemName, int itemSize, int itemPrice, String itemCategory) {
+    public void addClothItem(String itemName, int itemSize, int itemPrice, String itemCategory) {
         this.clothesList.add(new Clothes(itemName, itemSize, itemPrice, itemCategory));
     }
+
+
+
+
 
     //MODIFIES: this
     //EFFECTS: removes a clothing item from catalogue by clothing item name
@@ -61,4 +69,21 @@ public class Catalogue {
         return this.clothesList;
     }
 
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("clothes", clothesToJson());
+        return json;
+    }
+
+    // EFFECTS: returns things in this workroom as a JSON array
+    private JSONArray clothesToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Clothes c : clothesList) {
+            jsonArray.put(c.toJson());
+        }
+
+        return jsonArray;
+    }
 }
