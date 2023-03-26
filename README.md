@@ -19,7 +19,7 @@ looking for
 - As a user, I want to be able to see all the clothing items I have added to the catalogue
 - As a user, I want to be able to sort the clothing catalogue by price
 - As a user, I want to be able to sort the clothing catalogue by date 
-- As a user, I want to be prompted back to the display menu after each task unless I quit app 
+- As a user, I want to be able to save and load a previous catalogue that I have added 
 
 
  
