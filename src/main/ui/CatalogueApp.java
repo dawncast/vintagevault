@@ -50,6 +50,7 @@ public class CatalogueApp extends JFrame {
 
     }
 
+    @SuppressWarnings("methodlength")
     private void menuButton() {
         JButton addButton = new JButton("add clothing item");
         addButton.setBounds(450, 100, 200, 30);
