@@ -15,8 +15,8 @@ import java.util.Scanner;
 
 //represents a catalogue app that users can interact with
 public class CatalogueApp extends JFrame {
-    public static final int WIDTH = 800;
-    public static final int HEIGHT = 600;
+    public static final int WIDTH = 515;
+    public static final int HEIGHT = 525;
 
     private static final String JSON_STORE = "./data/catalogue.json";
     private Scanner input = new Scanner(System.in);
@@ -29,7 +29,6 @@ public class CatalogueApp extends JFrame {
     public CatalogueApp() throws FileNotFoundException {
         jsonWriter = new JsonWriter(JSON_STORE);
         jsonReader = new JsonReader(JSON_STORE);
-        //runCatalogue();
         catalogueUI();
     }
 
@@ -37,36 +36,41 @@ public class CatalogueApp extends JFrame {
     public void catalogueUI() {
         frame = new JFrame(); //creates a frame
         frame.setSize(WIDTH, HEIGHT); //sets x and y dimension of frame
-        frame.setTitle("Catalogue App"); //sets title for frame
+        frame.setTitle("Vintage Vault"); //sets title for frame
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //exit out of application
-        frame.setVisible(true); //make frame visible
 
-        frame.getContentPane().setBackground(new Color(229, 204, 255)); // change color of background
-
+        JLabel contentPane = new JLabel(
+                new ImageIcon("/Users/sangitadutta/Desktop/cpsc210/project_o4l8z/resources/aiCatalogue.jpg"));
+        frame.setContentPane(contentPane);
 
         menuButton();
 
-
+        frame.setVisible(true); //make frame visible
     }
+
+    // EFFECTS: create menu buttons that are able to perform function specified by its button name
+    // MODIFIES: this
 
     @SuppressWarnings("methodlength")
     private void menuButton() {
         JButton addButton = new JButton("add clothing item");
-        addButton.setBounds(450, 100, 200, 30);
+        addButton.setBounds(10, 100, 200, 30);
         addButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JFrame addActionFrame = new JFrame();
                 addActionFrame.setVisible(true);
                 addActionFrame.setSize(400, 300);
+                addActionFrame.setBackground(new Color(229, 204, 255));
                 addActionFrame.setResizable(false);
+
 
                 JPanel panel = new JPanel();
                 addActionFrame.add(panel);
 
                 JLabel nameLabel = new JLabel("clothing name: ");
-                nameLabel.setBounds(10, 20, 80, 25);
+                nameLabel.setBounds(10, 20, 80, 20);
                 panel.add(nameLabel);
 
                 JTextField nameText = new JTextField(20);
@@ -74,56 +78,56 @@ public class CatalogueApp extends JFrame {
                 panel.add(nameText);
 
                 JLabel sizeLabel = new JLabel("clothing size: ");
-                sizeLabel.setBounds(10, 20, 80, 25);
+                sizeLabel.setBounds(10, 40, 80, 25);
                 panel.add(sizeLabel);
 
                 JTextField sizeText = new JTextField(20);
-                sizeText.setBounds(100, 20, 165, 25);
+                sizeText.setBounds(100, 40, 165, 25);
                 panel.add(sizeText);
 
                 JLabel priceLabel = new JLabel("clothing price: ");
-                priceLabel.setBounds(10, 20, 80, 25);
+                priceLabel.setBounds(10, 60, 80, 25);
                 panel.add(priceLabel);
 
                 JTextField priceText = new JTextField(20);
-                priceText.setBounds(100, 20, 165, 25);
+                priceText.setBounds(100, 60, 165, 25);
                 panel.add(priceText);
 
                 JLabel categoryLabel = new JLabel("clothing category: ");
-                categoryLabel.setBounds(10, 20, 80, 25);
+                categoryLabel.setBounds(10, 80, 80, 25);
                 panel.add(categoryLabel);
 
                 JTextField cateText = new JTextField(20);
-                cateText.setBounds(100, 20, 165, 25);
+                cateText.setBounds(100, 80, 165, 25);
                 panel.add(cateText);
 
+                JLabel doneLabel = new JLabel("successfully added!");
+                doneLabel.setBounds(10, 100, 80, 25);
+                doneLabel.setVisible(false);
+                panel.add(doneLabel);
+
                 JButton doneButton = new JButton();
-                doneButton.setBounds(10, 80, 80, 25);
+                doneButton.setBounds(10, 120, 80, 25);
                 doneButton.setText("done");
                 panel.add(doneButton);
                 doneButton.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
+                        doneLabel.setVisible(true);
+
                         String itemName = nameText.getText();
                         int itemSize = Integer.parseInt(sizeText.getText());
                         int itemPrice = Integer.parseInt(priceText.getText());
                         String itemCategory = cateText.getText();
 
                         catalogue.addClothItem(itemName, itemSize, itemPrice, itemCategory);
-//                        JLabel doneMessage = new JLabel("successfully added!");
-//                        doneMessage.setBounds(10, 20, 80, 25);
-//                        panel.add(doneMessage);
-
                     }
                 });
-
-
             }
         });
 
-
         JButton removeButton = new JButton("remove clothing item");
-        removeButton.setBounds(450, 150, 200, 30);
+        removeButton.setBounds(10, 150, 200, 30);
         removeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -144,6 +148,11 @@ public class CatalogueApp extends JFrame {
                 nameText.setBounds(100, 20, 165, 25);
                 panel.add(nameText);
 
+                JLabel doneLabel = new JLabel("successfully removed!");
+                doneLabel.setBounds(10, 20, 80, 25);
+                doneLabel.setVisible(false);
+                panel.add(doneLabel);
+
                 JButton doneButton = new JButton();
                 doneButton.setBounds(10, 80, 80, 25);
                 doneButton.setText("done");
@@ -152,17 +161,17 @@ public class CatalogueApp extends JFrame {
 
                     @Override
                     public void actionPerformed(ActionEvent e) {
+                        doneLabel.setVisible(true);
+
                         String itemName = nameText.getText();
                         catalogue.removeClothes(itemName);
-
                     }
                 });
             }
         });
 
-
         JButton viewButton = new JButton("view catalogue");
-        viewButton.setBounds(450, 200, 200, 30);
+        viewButton.setBounds(10, 200, 200, 30);
         viewButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -174,7 +183,7 @@ public class CatalogueApp extends JFrame {
                 viewActionFrame.setResizable(true);
                 if (catalogue.getList().isEmpty()) {
                     JLabel emptyMessage = new JLabel("The catalogue is empty!");
-                    emptyMessage.setBounds(10, 20, 80, 25);
+                    emptyMessage.setBounds(10, 80, 80, 25);
                     panel.add(emptyMessage);
 
                 } else {
@@ -188,21 +197,8 @@ public class CatalogueApp extends JFrame {
                     }
 
                 }
-                JButton sortButton = new JButton();
-                sortButton.setBounds(10, 100, 80, 25);
-                sortButton.setText("sort");
-                panel.add(sortButton);
-                sortButton.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        //todo
-                        catalogue.sortPrice();
-
-                    }
-                });
             }
         });
-
 
 //        JButton priceButton = new JButton("sort catalogue by price");
 //        priceButton.setBounds(450, 250, 200, 30);
@@ -216,9 +212,8 @@ public class CatalogueApp extends JFrame {
 //            }
 //        });
 
-
         JButton saveButton = new JButton("save catalogue");
-        saveButton.setBounds(450, 300, 200, 30);
+        saveButton.setBounds(10, 300, 200, 30);
         saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -226,9 +221,8 @@ public class CatalogueApp extends JFrame {
             }
         });
 
-
         JButton loadButton = new JButton("load catalogue");
-        loadButton.setBounds(450, 350, 200, 30);
+        loadButton.setBounds(10, 350, 200, 30);
         loadButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -236,15 +230,12 @@ public class CatalogueApp extends JFrame {
             }
         });
 
-
         frame.add(addButton);
         frame.add(removeButton);
         frame.add(viewButton);
         //frame.add(priceButton);
         frame.add(saveButton);
         frame.add(loadButton);
-
-
     }
 
     // EFFECTS: saves the workroom to file
@@ -259,7 +250,6 @@ public class CatalogueApp extends JFrame {
         }
     }
 
-
     // MODIFIES: this
     // EFFECTS: loads workroom from file
     private void loadWorkRoom() {
@@ -271,6 +261,8 @@ public class CatalogueApp extends JFrame {
         }
     }
 }
+
+
 
 
 //    // MODIFIES: this

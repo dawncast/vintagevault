@@ -10,16 +10,27 @@ Sometimes I wish there is a more efficient way to browse through everything or l
 looking for 
 
 
-
 ## Vintage Vault
 
 **app features:**
 - As a user, I want to be able to add a new piece of clothing to the app
 - As a user, I want to be able to remove a piece of clothing from the catalogue
-- As a user, I want to be able to see all the clothing items I have added to the catalogue
-- As a user, I want to be able to sort the clothing catalogue by price
-- As a user, I want to be able to sort the clothing catalogue by date 
-- As a user, I want to be able to save and load a previous catalogue that I have added 
+- As a user, I want to be able to see all the clothing items I have added to the catalogue 
+- As a user, I want to be able to save and load a previous catalogue that I have added
+
+
+# Instructions for Grader
+- You can generate the first required action related to adding Xs to a Y by pressing add clothing item button
+    and entering the appropriate clothing name, size, price, and category then pressing the done button 
+
+- You can generate the second required action related to adding Xs to a Y by pressing remove clothing item button
+    and entering the appropriate clothing name and the pressing done button. 
+
+- You can locate my visual component by the background of the app 
+
+- You can save the state of my application by pressing the save catalogue button 
+- You can reload the state of my application by pressing the load catalogue button 
+
 
 
  
