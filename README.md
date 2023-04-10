@@ -46,6 +46,12 @@ Added clothing item: blouse
 Sun Apr 09 20:15:01 PDT 2023
 Removed clothing item: blouse
 
+# Phase 4: Task 3
+I would refactor the CatalogueApp class, which is the class that holds the GUI for my program. Inside the class, 
+I have all of my JButtons under one method, which means there is a lot of duplication involved. I would refactor
+the class such that is a new class that provides the GUI of a basic button. All of my buttons would then extend this 
+class and override the name as necessary, since the design of the buttons are all the same. 
+
 
 
  
