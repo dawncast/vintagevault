@@ -21,10 +21,9 @@ public class Catalogue implements Writable {
     //EFFECTS: adds a new clothing item to existing catalogue of clothing
     public void addClothItem(String itemName, int itemSize, int itemPrice, String itemCategory) {
         this.clothesList.add(new Clothes(itemName, itemSize, itemPrice, itemCategory));
+        EventLog.getInstance().logEvent(new Event("Added clothing item: " + itemName));
+
     }
-
-
-
 
 
     //MODIFIES: this
@@ -36,6 +35,7 @@ public class Catalogue implements Writable {
                 itemToRemove = clothesItem;
             }
         }
+        EventLog.getInstance().logEvent(new Event("Removed clothing item: " + name));
         this.clothesList.remove(itemToRemove);
     }
 

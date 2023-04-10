@@ -31,6 +31,21 @@ looking for
 - You can save the state of my application by pressing the save catalogue button 
 - You can reload the state of my application by pressing the load catalogue button 
 
+# Phase 4: Task 2
+- below is an example of an event log printed to the console after the catalogue app closes.
+
+Sun Apr 09 20:14:09 PDT 2023
+Event log cleared.
+
+Sun Apr 09 20:14:40 PDT 2023
+Added clothing item: vivienne westwood jacket
+
+Sun Apr 09 20:14:55 PDT 2023
+Added clothing item: blouse
+
+Sun Apr 09 20:15:01 PDT 2023
+Removed clothing item: blouse
+
 
 
  

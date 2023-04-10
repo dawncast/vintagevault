@@ -1,14 +1,6 @@
-{"clothes": [
-    {
-        "size": 34,
-        "price": 99,
-        "name": "san",
-        "category": "top"
-    },
-    {
-        "size": 48,
-        "price": 7,
-        "name": "jitin",
-        "category": "bottom"
-    }
-]}
+{"clothes": [{
+    "size": 3,
+    "price": 3,
+    "name": "ssss",
+    "category": "t"
+}]}
